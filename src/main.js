@@ -9,11 +9,11 @@ const app = createApp(App)
 
 
 /*  part of Error Handling: throwing error when there is and error with more information */
-// app.config.errorHandler = (err, vm, info) => {
-//     console.error("Error:", err);
-//     console.error("Vue component:", vm);
-//     console.error("Additional info:", info);
-// };
+app.config.errorHandler = (err, vm, info) => {
+    console.error("Error:", err);
+    console.error("Vue component:", vm);
+    console.error("Additional info:", info);
+};
 
 
 // Vuetify
