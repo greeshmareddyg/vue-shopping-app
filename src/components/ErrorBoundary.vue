@@ -1,0 +1,20 @@
+<template>
+    <div v-if="error"></div>
+    <div v-else><slot></slot></div>
+  </template>
+  
+  <script>
+  export default {
+    data() {
+      return {
+        error: null,
+        errorMessage: '',
+      };
+    },
+    errorCaptured(error, vm, info) {
+      this.error = error;
+      this.errorMessage = info;
+      return false; // Prevents the error from propagating further
+    },
+  };
+  </script>

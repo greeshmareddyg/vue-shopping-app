@@ -31,6 +31,7 @@
   import { productsStore } from "@/stores/products";
   import { useRouter } from "vue-router";
 
+
   const router = useRouter()
 
   const store = productsStore()

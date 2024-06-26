@@ -4,6 +4,7 @@
     <v-text-field clearable label="Search" class="search-input" v-model="searchText" @input="setSearch(searchText)"></v-text-field>
     <span v-if="searchText"> {{ filteredProducts.length }} results based on your search # {{ store.searchText}}</span>
     <span v-if="searchText && filteredProducts.length === 0"></span>
+    <span v-if="!searchText && filteredProducts"> {{ filteredProducts.length }} results </span>
     <v-row no-gutters>
       <v-col
           class=""
@@ -13,10 +14,12 @@
           sm="4"
           @click="goToProductPage(product.id)"
       >
+      <ErrorBoundary>
         <product-item
             :product-data="product"
             @item-clicked="goToProductPage"
         />
+      </ErrorBoundary>  
       </v-col>
     </v-row>
     </div>
@@ -26,10 +29,12 @@
 <script>
   import { defineComponent } from "vue";
   import ProductItem from "@/components/ProductItem.vue";
+  import ErrorBoundary from '@/components/ErrorBoundary.vue';
   export default defineComponent({
     name: 'CatalogView',
     components: {
-      ProductItem
+      ProductItem,
+      ErrorBoundary
     }
   })
 </script>

@@ -18,6 +18,7 @@ export const productsStore = defineStore('products', {
           })
           .catch((error) => {
             console.log('error:', error)
+            throw error;
           })
 
           console.log('api called')
@@ -33,9 +34,7 @@ export const productsStore = defineStore('products', {
       this.cart = this.cart.filter((item) => item.id !== id)
     },
     setSearchText(input) {
-      console.log('called')
       this.searchText = input
-      console.log('statetext', this.searchText)
     }
   },
   mutations: {
