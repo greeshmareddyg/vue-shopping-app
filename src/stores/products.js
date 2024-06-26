@@ -3,10 +3,12 @@ import { defineStore } from 'pinia'
 
 export const productsStore = defineStore('products', {
   state: () => ({
+    counter: 0,
     products: [],
-      cart: [],
+    cart: [],
+    searchText: '',
+    filteredProducts: []
   }),
-
   actions: {
     async fetchProductsFromAPI() {
       await fetch('https://dummyjson.com/products')
@@ -29,6 +31,20 @@ export const productsStore = defineStore('products', {
     removeFromCart(id) {
       console.log('product ID', id)
       this.cart = this.cart.filter((item) => item.id !== id)
+    },
+    setSearchText(input) {
+      console.log('called')
+      this.searchText = input
+      console.log('statetext', this.searchText)
+    }
+  },
+  mutations: {
+
+  },
+  getters: {
+    filteredProductsData: (state) => {
+      return state.products.filter((product) => product.title.toLowerCase().includes(state.searchText.toLowerCase()))
     }
   }
+
 })

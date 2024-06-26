@@ -1,8 +1,8 @@
 <template>
   <div class="products-list grid-container">
     <div class="column">
-    <v-text-field clearable label="Search" class="search-input" v-model="searchText"></v-text-field>
-    <span v-if="searchText"> {{ filteredProducts.length }} results based on your search # {{ searchText }}</span>
+    <v-text-field clearable label="Search" class="search-input" v-model="searchText" @input="setSearch(searchText)"></v-text-field>
+    <span v-if="searchText"> {{ filteredProducts.length }} results based on your search # {{ store.searchText}}</span>
     <span v-if="searchText && filteredProducts.length === 0"></span>
     <v-row no-gutters>
       <v-col
@@ -42,18 +42,30 @@
   const store = productsStore()
   const router = useRouter()
 
+  
+
   let searchText = ref('')
 
   const goToProductPage = (id) => {
     router.push({ name: 'ProductView', params: { id } })
   }
-  const filteredProducts = computed(() => {
 
-    return store.products.filter((product) => product.title.toLowerCase().includes(searchText.value.toLowerCase()))
+  
+  function setSearch (input) {
+    store.setSearchText(input)
+  }
+
+  const getSearchText = computed(() => {
+    return store.searchText
 
   })
+  
 
 
+  const filteredProducts = computed(() => {
+    console.log('filteredProductsData', store.filteredProductsData)
+    return store.filteredProductsData
+  })
 
   console.log('products', store.products)
   onMounted(async () => {
