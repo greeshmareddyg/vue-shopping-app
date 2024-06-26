@@ -1,0 +1,56 @@
+{
+  "\u0000plugin-vue:export-helper": [
+    "/assets/_plugin-vue_export-helper-c27b6911.js"
+  ],
+  "\u0000vite/modulepreload-polyfill": [
+  ],
+  "\u0000vite/preload-helper": [
+  ],
+  "index.html": [
+  ],
+  "node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js": [
+  ],
+  "node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js": [
+  ],
+  "node_modules/@vue/shared/dist/shared.esm-bundler.js": [
+  ],
+  "node_modules/pinia/dist/pinia.mjs": [
+  ],
+  "node_modules/vue-router/dist/vue-router.mjs": [
+  ],
+  "node_modules/vuetify/lib/styles/main.css": [
+  ],
+  "src/App.vue?vue&type=style&index=0&scoped=ee014af4&lang.css": [
+  ],
+  "src/assets/styles.css": [
+  ],
+  "src/components/ProductItem.vue": [
+  ],
+  "src/main.js": [
+  ],
+  "src/router/index.js": [
+  ],
+  "src/stores/products.js": [
+  ],
+  "src/views/Cart.vue": [
+    "/assets/Cart-6bebce33.js",
+    "/assets/Cart-18ddb41d.css"
+  ],
+  "src/views/Cart.vue?vue&type=style&index=0&scoped=48492052&lang.css": [
+    "/assets/Cart-6bebce33.js",
+    "/assets/Cart-18ddb41d.css"
+  ],
+  "src/views/Catalog.vue": [
+  ],
+  "src/views/Home.vue": [
+    "/assets/Home-088b0be5.js"
+  ],
+  "src/views/ProductDetail.vue": [
+    "/assets/ProductDetail-ea3ecbb6.js",
+    "/assets/ProductDetail-d6e87aac.css"
+  ],
+  "src/views/ProductDetail.vue?vue&type=style&index=0&scoped=a3a43272&lang.css": [
+    "/assets/ProductDetail-ea3ecbb6.js",
+    "/assets/ProductDetail-d6e87aac.css"
+  ]
+}
