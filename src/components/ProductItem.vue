@@ -7,6 +7,8 @@
           :src="props.productData.thumbnail"
           height="200px"
           cover
+          :alt="props.productData.title"
+          ></v-img>
       />
 
       <v-card-title>

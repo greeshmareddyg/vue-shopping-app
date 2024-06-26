@@ -9,7 +9,7 @@
 
   <div class="product">
     <div class="product-image">
-      <img :src="selectedProduct.thumbnail" alt="">
+      <img :src="selectedProduct.thumbnail" :alt="selectedProduct.title" rel="preload">
     </div>
     <div class="product-details">
       <p>Brand: {{ selectedProduct.brand }}</p>

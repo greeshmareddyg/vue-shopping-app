@@ -10,7 +10,7 @@
         :key="item.id"
     >
       <div class="item-details">
-        <img :src="item.thumbnail" alt="">
+        <img :src="item.thumbnail" alt="item.title" rel="preload">
         <span>Brand: {{ item.brand }}</span>
         <span>Category: {{ item.category }}</span>
         <span>Price: ${{ item.price }}</span>
