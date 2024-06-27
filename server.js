@@ -1,104 +1,74 @@
-import fs from "node:fs";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import express from "express";
+import fs from 'node:fs/promises'
+import express from 'express'
 
+// Constants
+const isProduction = process.env.NODE_ENV === 'production'
+const port = process.env.PORT || 5173
+const base = process.env.BASE || '/'
 
-const isTest = process.env.VITEST;
-const isProd = process.env.NODE_ENV === "production"
+// Cached production assets
+const templateHtml = isProduction
+  ? await fs.readFile('./dist/client/index.html', 'utf-8')
+  : ''
+const ssrManifest = isProduction
+  ? await fs.readFile('./dist/client/.vite/ssr-manifest.json', 'utf-8')
+  : undefined
 
-export async function createServer(
-  root = process.cwd(),
-  isProd = process.env.NODE_ENV === "production",
-  hmrPort
-) {
-  const __dirname = path.dirname(fileURLToPath(import.meta.url));
-  const resolve = (p) => path.resolve(__dirname, p);
+// Create http server
+const app = express()
 
-  const indexProd = isProd
-    ? fs.readFileSync(resolve("dist/client/index.html"), "utf-8")
-    : "";
+// Add Vite or respective production middlewares
+let vite
+if (!isProduction) {
+  const { createServer } = await import('vite')
+  vite = await createServer({
+    server: { middlewareMode: true },
+    appType: 'custom',
+    base
+  })
+  app.use(vite.middlewares)
+} else {
+  const compression = (await import('compression')).default
+  const sirv = (await import('sirv')).default
+  app.use(compression())
+  app.use(base, sirv('./dist/client', { extensions: [] }))
+}
 
-  const manifest = isProd
-    ? JSON.parse(
-        fs.readFileSync(resolve("dist/client/ssr-manifest.json"), "utf-8")
-      )
-    : {};
+// Serve HTML
+app.use('*', async (req, res) => {
+  try {
+    const url = req.originalUrl.replace(base, '')
 
-  const app = express();
-
-  /**
-   * @type {import('vite').ViteDevServer}
-   */
-  let vite;
-  if (!isProd) {
-    vite = await (
-      await import("vite")
-    ).createServer({
-      base: "/",
-      root,
-      logLevel: isTest ? "error" : "info",
-      server: {
-        middlewareMode: true,
-        watch: {
-          usePolling: true,
-          interval: 100,
-        },
-        hmr: {
-          port: hmrPort,
-        },
-      },
-      appType: "custom",
-    });
-    app.use(vite.middlewares);
-  } else {
-    app.use((await import("compression")).default());
-    app.use(
-      "/",
-      (await import("serve-static")).default(resolve("dist/client"), {
-        index: false,
-      })
-    );
-  }
-
-  app.use("*", async (req, res) => {
-    try {
-      const url = req.originalUrl;
-
-      let template, render;
-      if (!isProd) {
-        template = fs.readFileSync(resolve("index.html"), "utf-8");
-        template = await vite.transformIndexHtml(url, template);
-        render = (await vite.ssrLoadModule("/src/entry-server.js")).render;
-      } else {
-        template = indexProd;
-        render = (await import("./dist/server/entry-server.js")).render;
-      }
-
-      const [appHtml, preloadLinks] = await render(url, manifest);
-
-      const html = template
-        .replace(`<!--preload-links-->`, preloadLinks)
-        .replace(`<!--app-html-->`, appHtml);
-
-      res.status(200).set({ "Content-Type": "text/html" }).end(html);
-    } catch (e) {
-      vite && vite.ssrFixStacktrace(e);
-      console.log(e.stack);
-      res.status(500).end(e.stack);
+    let template
+    let render
+    if (!isProduction) {
+      // Always read fresh template in development
+      template = await fs.readFile('./index.html', 'utf-8')
+      template = await vite.transformIndexHtml(url, template)
+      render = (await vite.ssrLoadModule('/src/entry-server.js')).render
+    } else {
+      template = templateHtml
+      render = (await import('./dist/server/entry-server.js')).render
     }
-  });
 
-  return { app, vite };
-}
+    const rendered = await render(url, ssrManifest)
 
-if (!isTest) {
-  createServer().then(({ app }) =>
-    app.listen(6173, () => {
-      console.log("http://localhost:6173");
-    })
-  );
-}
+    const html = template
+      .replace(`<!--app-head-->`, rendered.head ?? '')
+      .replace(`<!--app-html-->`, rendered.html ?? '')
+
+    res.status(200).set({ 'Content-Type': 'text/html' }).send(html)
+  } catch (e) {
+    vite?.ssrFixStacktrace(e)
+    console.log(e.stack)
+    res.status(500).end(e.stack)
+  }
+})
+
+// Start http server
+app.listen(port, () => {
+  console.log(`Server started at http://localhost:${port}`)
+})
 
   
 

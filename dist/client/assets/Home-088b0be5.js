@@ -1,1 +1,0 @@
-import{u as n,o as a,b as s,f as e,e as r,F as u,g as l}from"./index-79ff6045.js";const c=e("div",null,[e("h1",null,"Its home")],-1),m=l({name:"HomeView"}),d=Object.assign(m,{setup(_){const o=n();return(i,t)=>(a(),s(u,null,[e("button",{onClick:t[0]||(t[0]=p=>r(o).push({name:"Catalog"}))},"Back to catalog"),c],64))}});export{d as default};

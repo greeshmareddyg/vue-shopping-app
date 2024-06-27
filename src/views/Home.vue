@@ -1,19 +1,5 @@
 <template>
     <div class="home-page">
-      <!-- <div>
-        <div class="column">
-          <h2>About us</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-            tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
-            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
-            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
-            anim id est laborum.</p>
-        </div>  
-      </div> -->
-
-
       <div class="grid-container app-home-features">
         <div class="column">
           <h2>About GG</h2>
@@ -24,11 +10,9 @@
             in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
             sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
             anim id est laborum.</p>
-            <h4> Our products</h4>
         </div>  
 
           
-
           <div class="app-feature app-features-fashion column c1-2-md c1-4-lg">
             Fashion
 
@@ -61,9 +45,9 @@
   </script>
   
   <style scoped>
-  .app-home-features {
+  /* .app-home-features {
   text-align: center;
-}
+} */
 
 .app-feature {
   font-size: 30px;

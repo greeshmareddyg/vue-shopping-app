@@ -9,7 +9,7 @@
           cover
           :alt="props.productData.title"
           ></v-img>
-      />
+      
 
       <v-card-title>
         {{ props.productData.title }}

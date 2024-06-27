@@ -7,15 +7,27 @@ body {
   font-family: "marcellus sc", georgia, serif;
 }
 
-h2, h4 {
-  padding: 10px;
-  margin: 1rem;
+h2, h3, h4 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* padding: 10px;
+  margin: 1rem; */
   color: #5471a7;
   
 }
 
+
+
+span {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
 main {
-    max-width: 1000px;
+    max-width: 80%;
     margin: 0 auto;
     padding: 16px;
     margin-top: 1.5rem;
@@ -24,7 +36,7 @@ main {
 
 header {
   height: auto;
-  text-align: center;
+  /* text-align: center; */
   width: 100%;
   font-size: 12px;
   color: #5471a7;
@@ -41,6 +53,7 @@ header {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1fr auto;
+    text-align: center;
     /* gap: 10px; */
   }
   
@@ -67,7 +80,10 @@ header {
     .c1-3-lg {
       grid-column: auto / span 3;
     }
-    .c1-6-lg {
+    .c1-8-lg {
       grid-column: auto / span 8;
+    }
+    .c1-6-lg {
+      grid-column: auto / span 6;
     }
   }
