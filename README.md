@@ -140,4 +140,9 @@ Fourth day:
 
 
 
+I really enjoyed working on the app :)
+Thank you for the opportunity.
+
+
+
 
