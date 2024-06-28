@@ -9,8 +9,22 @@
             nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
             in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
             sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
+            anim id est laborum.</p> <br/> 
+
+            
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+            tempor incididunt ut labore et dolore magna aliqua. 
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur 
+            sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
             anim id est laborum.</p>
+
+        
+            
+            
         </div>  
+          <div class="column" :style="{ color: '#5471a7' , fontWeight: 'bold' }">Our products</div>
 
           
           <div class="app-feature app-features-fashion column c1-2-md c1-4-lg">
@@ -49,6 +63,9 @@
   text-align: center;
 } */
 
+
+
+
 .app-feature {
   font-size: 30px;
   color: #5471a7;
@@ -56,6 +73,12 @@
   padding: 2rem;
   margin: 1rem;
   border: 1px solid #ffd700;
+
+  /* CSS pattern */
+  background: radial-gradient(circle, #dbc546 10%, transparent 11%),radial-gradient(circle at bottom left, #dbc546 5%, transparent 6%),radial-gradient(circle at bottom right, #dbc546 5%, transparent 6%),radial-gradient(circle at top left, #dbc546 5%, transparent 6%),radial-gradient(circle at top right, #dbc546 5%, transparent 6%);
+  background-size: 0.5em 0.5em;
+  background-color: #ffffff;
+  opacity: 1
 
 }
 

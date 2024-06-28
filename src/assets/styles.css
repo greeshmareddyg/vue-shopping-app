@@ -28,7 +28,7 @@ span {
 }
 
 main {
-    max-width: 70%;
+    width: min(70%, 1000px);
     margin: 0 auto;
     padding: 16px;
     margin-top: 1.5rem;
@@ -49,6 +49,8 @@ header {
   color: white;
   text-align: center;
 }
+
+
 
 .grid-container {
     display: grid;

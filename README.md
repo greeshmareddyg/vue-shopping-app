@@ -31,6 +31,13 @@ Third day:
 - some data and state management.
 - SSR code added.
 
+Fourth day:
+- test setup and added tests.
+- product details fixes
+- added animations
+- css: modern methods min, max, animation, media queries, made it responsive.
+- added CSS pattern on home page cards.
+
 
 
 

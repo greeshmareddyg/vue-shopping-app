@@ -48,7 +48,6 @@
             <p><b>Brand:</b> {{ selectedProduct.brand }} </p>
             <p><b>Category:</b> {{ selectedProduct.category }}</p>
             <p><b>Weight:</b>{{ selectedProduct.weight }}</p>
-            <p><b>Dimensions:</b> {{ selectedProduct.dimensions.width }} X {{ selectedProduct.dimensions.height }} X {{selectedProduct.dimensions.depth }} </p>
 
           </div>
 

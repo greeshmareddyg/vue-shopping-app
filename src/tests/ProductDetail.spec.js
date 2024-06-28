@@ -13,6 +13,7 @@ vi.mock("@/stores/products", () => ({
         brand: "Test Brand",
         description: "Test Description",
         price: 100,
+        width: 20
       },
     ],
     addToCart: vi.fn(),

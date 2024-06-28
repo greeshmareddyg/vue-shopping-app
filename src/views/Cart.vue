@@ -74,18 +74,26 @@
 
 <style scoped>
 
-.item-details {
+
+
+@media screen and (min-width:500px) {
+  .cart-heading {
+  text-align: center;
+}
+
+}
+
+@media screen and (min-width:1000px) {
+  .item-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* margin-bottom: 10px; */
-  /* border-radius: 8px; */
-  /* padding: 16px; */
+
+}
 }
 
-.cart-heading {
-  text-align: left;
-}
+
+
 
 .item-details img {
   width: 20%;
