@@ -18,13 +18,14 @@ h2, h3, h4 {
   
 }
 
-
-
 span {
   padding-left: 5px;
   padding-right: 5px;
 }
 
+.number-styling {
+  font-family: "Times New Roman", Times, serif;
+}
 
 main {
     max-width: 80%;

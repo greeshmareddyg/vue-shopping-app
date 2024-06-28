@@ -1,27 +1,40 @@
 <template>
-  <div class="products-list grid-container">
-    <div class="column">
-    <v-text-field clearable label="Search" class="search-input" v-model="searchText" @input="setSearch(searchText)"></v-text-field>
-    <span v-if="searchText"> {{ filteredProducts.length }} results based on your search # {{ store.searchText}}</span>
-    <span v-if="searchText && filteredProducts.length === 0"></span>
-    <span v-if="!searchText && filteredProducts"> {{ filteredProducts.length }} results </span>
-    <v-row no-gutters>
-      <v-col
-          class=""
-          v-for="product in filteredProducts"
-          :key="product.id"
-          cols="12"
-          sm="4"
-          @click="goToProductPage(product.id)"
-      >
-      <ErrorBoundary>
-        <product-item
-            :product-data="product"
-            @item-clicked="goToProductPage"
-        />
-      </ErrorBoundary>  
-      </v-col>
-    </v-row>
+  <div>
+
+    <div class=" grid-container">
+      <div class="column c1-3-lg"></div>
+      <div class="column  c1-6-lg"> 
+        <div class="search-shop">
+          <v-text-field clearable label="Search" class="search-input" v-model="searchText" @input="setSearch(searchText)"></v-text-field>
+        </div>
+        <!-- <v-text-field clearable label="Search" class="search-input" v-model="searchText" @input="setSearch(searchText)"></v-text-field> -->
+        <span class="number-styling" v-if="searchText"> {{ filteredProducts.length }} results based on your search # {{ store.searchText}}</span>
+        <span v-if="searchText && filteredProducts.length === 0"></span>
+        <span class="number-styling" v-if="!searchText && filteredProducts"> {{ filteredProducts.length }} items </span>
+      </div>
+    </div>  
+    
+
+    <div class="products-list grid-container">
+      <div class="column">
+        <v-row no-gutters>
+          <v-col
+              class=""
+              v-for="product in filteredProducts"
+              :key="product.id"
+              cols="12"
+              sm="4"
+              @click="goToProductPage(product.id)"
+          >
+          <ErrorBoundary>
+            <product-item
+                :product-data="product"
+                @item-clicked="goToProductPage"
+            />
+          </ErrorBoundary>  
+          </v-col>
+        </v-row>
+      </div>
     </div>
   </div>
 </template>
@@ -86,6 +99,11 @@
   text-align: center
 
 }
+
+/* .search-shop {
+  align-content: center;
+  width: 50%
+} */
 
 .v-field__field {
   border-bottom: 1px solid grey;

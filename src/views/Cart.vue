@@ -1,23 +1,54 @@
 <template>
-  <button @click="router.push({ name: 'Catalog' })">Back to catalog</button>
-  <div v-if="!store.cart.length" style="text-align: center">
-    <h1>Empty Cart ...</h1>
-  </div>
-  <div class="cart-items" v-else>
-    <div
-        class="cart-item"
-        v-for="item in store.cart"
-        :key="item.id"
-    >
-      <div class="item-details">
-        <img :src="item.thumbnail" alt="item.title" rel="preload">
-        <span>Brand: {{ item.brand }}</span>
-        <span>Category: {{ item.category }}</span>
-        <span>Price: ${{ item.price }}</span>
-        <button @click="removeFromCart(item.id)">Remove</button>
+  <div class="cart-view">
+
+    
+    
+      <div v-if="!store.cart.length" class="grid-container" style="text-align: center">
+        <div class="column" >
+        <h2>Empty Cart ...</h2>
+        <button @click="router.push({ name: 'Catalog' })">Go to Shop</button>
+        </div>
       </div>
-    </div>
+      <div class="cart-items grid-container" v-else>
+        <div class="column cart-heading"> 
+          <h3>Shopping Cart</h3>
+           <v-divider></v-divider> 
+        </div>
+
+        <div
+            class="cart-item column"
+            v-for="item in store.cart"
+            :key="item.id"
+        >
+            <div class="item-details">
+            <img :src="item.thumbnail" alt="item.title" rel="preload">
+            <div>
+              <h4>{{ item.title }}</h4>
+              <p style="color:green">stock {{  item.stock }}</p>
+              <p>{{ item.shippingInformation }}</p>
+            </div>
+            <div>
+              <p>Price: ${{ item.price }}</p>
+              <p><button @click="removeFromCart(item.id)">Remove</button></p>
+              
+            </div>
+            
+            <!-- <span> {{ item.title }}</span>
+            <span>Brand: {{ item.brand }}</span>
+            <span>Category: {{ item.category }}</span>
+            <span>Price: ${{ item.price }}</span>
+            <button @click="removeFromCart(item.id)">Remove</button> -->
+          </div>
+          <v-divider></v-divider>  
+        </div>
+        <div class="column cart-total number-styling"> <h2>Total  {{ store.getCartTotal }} </h2></div>
+
+
+
+      </div>
+    
   </div>
+
 </template>
 
 <script>
@@ -40,20 +71,30 @@
     store.removeFromCart(id)
   }
 
+
+
 </script>
 
 <style scoped>
+
 .item-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 32px;
-  box-shadow: 0 0 17px 6px #e7e7e7;
-  border-radius: 8px;
-  padding: 16px;
+  /* margin-bottom: 10px; */
+  /* border-radius: 8px; */
+  /* padding: 16px; */
+}
+
+.cart-heading {
+  text-align: left;
 }
 
 .item-details img {
   width: 20%;
+}
+
+.cart-total {
+  text-align: right;
 }
 </style>

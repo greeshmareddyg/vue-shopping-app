@@ -7,7 +7,8 @@ export const productsStore = defineStore('products', {
     products: [],
     cart: [],
     searchText: '',
-    filteredProducts: []
+    filteredProducts: [],
+    cartTotal: 0
   }),
   actions: {
     async fetchProductsFromAPI() {
@@ -26,6 +27,7 @@ export const productsStore = defineStore('products', {
     },
 
     addToCart(product) {
+      console.log('cart called ', this.cart)
       this.cart.push(product)
     },
 
@@ -35,7 +37,7 @@ export const productsStore = defineStore('products', {
     },
     setSearchText(input) {
       this.searchText = input
-    }
+    },
   },
   mutations: {
 
@@ -43,7 +45,15 @@ export const productsStore = defineStore('products', {
   getters: {
     filteredProductsData: (state) => {
       return state.products.filter((product) => product.title.toLowerCase().includes(state.searchText.toLowerCase()))
+    },
+    getCartTotal: (state) => {
+      let total = state.cart.reduce((sum, item) => sum + item.price, 0);
+      return Math.round(total * 100) / 100
+    },
+    getCategoriesData: (state) => {
+      return state.products.filter((item) => item.category)
     }
+
   }
 
 })
