@@ -51,8 +51,15 @@ export const productsStore = defineStore('products', {
       return Math.round(total * 100) / 100
     },
     getCategoriesData: (state) => {
-      return state.products.filter((item) => item.category)
+      console.log('get categories', state.products.reduce((acc,curr)=>(
+        (acc[curr.category] = acc[curr.category] || []).push(curr), acc
+      ), {}))
+      let filteredcategories = state.products.reduce((acc,curr)=>(
+        (acc[curr.category] = acc[curr.category] || []).push(curr), acc
+      ), {})
+      return filteredcategories
     }
+
 
   }
 

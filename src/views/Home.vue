@@ -27,16 +27,27 @@
           <div class="column" :style="{ color: '#5471a7' , fontWeight: 'bold' }">Our products</div>
 
           
-          <div class="app-feature app-features-fashion column c1-2-md c1-4-lg">
-            Fashion
+          <div 
+          v-for="(category, index) in getCategoriesData" 
+          :key="index"
+          @mouseleave="mouseLeaveFn" 
+          @mouseover="mouseOverFn" 
+          class="app-feature category-card-title app-features-fashion column c1-2-md c1-3-lg">
+            <p class="uppercase " style="text-transform:uppercase">{{ index}}</p>
+            <p class="product-qty">Qty {{ category.length }}</p>
 
           </div>
-          <div class="app-feature app-features-beauty column c1-2-md c1-4-lg">
+          <!-- <div class="app-feature app-features-beauty column c1-2-md c1-3-lg">
             Beauty
           </div>
-          <div class="app-feature app-features-care column c1-2-md c1-4-lg">
+          <div class="app-feature app-features-care column c1-2-md c1-3-lg">
             Featured
           </div>
+          <div class="app-feature app-features-care column c1-2-md c1-3-lg">
+            Featured
+          </div> -->
+
+          <!-- {{ getCategoriesData }} -->
       </div>
     </div>
 
@@ -52,8 +63,28 @@
   <script setup>
 
     import { useRouter } from "vue-router";
+    import { productsStore } from "@/stores/products";
+    import { ref, computed, onMounted } from "vue";
   
     const router = useRouter()
+    const store = productsStore()
+
+    const isHovered = ref(false)
+
+
+
+    const getCategoriesData = computed(() => {
+    console.log('getCategoriesData home' , store.getCategoriesData)
+    return store.getCategoriesData
+  })
+
+    onMounted(async () => {
+    await store.fetchProductsFromAPI()
+    console.log('getCategoriesData home' , store.getCategoriesData)
+
+  })
+
+
 
   
   </script>
@@ -80,6 +111,14 @@
   background-color: #ffffff;
   opacity: 1
 
+}
+
+.product-qty {
+  font-size: 1rem;
+}
+
+.category-card-title {
+  font-size: 1.5rem;
 }
 
 .app-feature:hover {
