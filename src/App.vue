@@ -91,7 +91,6 @@
     border: none;
     background: none;
     width: 20%;
-    /* padding-right: 1.5rem; */
 }
 
 .app-profile-button {

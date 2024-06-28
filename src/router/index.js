@@ -27,6 +27,7 @@ const router = _createRouter({
       component: () => import('@/views/ProductDetail.vue')
     },
     {
+      // Lazy loading
       path: '/cart',
       name: 'CartView',
       component: () => import('@/views/Cart.vue')

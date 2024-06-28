@@ -1,4 +1,5 @@
 <template>
+  <!-- Not found router page -->
     <div class="grid-container error-page">
         <div class="column">
       <h1>Error Page</h1>

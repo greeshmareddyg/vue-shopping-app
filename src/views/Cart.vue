@@ -30,18 +30,10 @@
               
             </div>
             
-            <!-- <span> {{ item.title }}</span>
-            <span>Brand: {{ item.brand }}</span>
-            <span>Category: {{ item.category }}</span>
-            <span>Price: ${{ item.price }}</span>
-            <button @click="removeFromCart(item.id)">Remove</button> -->
           </div>
           <v-divider></v-divider>  
         </div>
         <div class="column cart-total number-styling"> <h2>Total  {{ store.getCartTotal }} </h2></div>
-
-
-
       </div>
     
   </div>
@@ -91,10 +83,6 @@
 
 }
 }
-
-
-
-
 .item-details img {
   width: 20%;
 }

@@ -7,7 +7,6 @@
         <div class="search-shop">
           <v-text-field clearable label="Search" class="search-input" v-model="searchText" @input="setSearch(searchText)"></v-text-field>
         </div>
-        <!-- <v-text-field clearable label="Search" class="search-input" v-model="searchText" @input="setSearch(searchText)"></v-text-field> -->
         <span class="number-styling" v-if="searchText"> {{ filteredProducts.length }} results based on your search # {{ store.searchText}}</span>
         <span v-if="searchText && filteredProducts.length === 0"></span>
         <span class="number-styling" v-if="!searchText && filteredProducts"> {{ filteredProducts.length }} items </span>
@@ -100,10 +99,6 @@
 
 }
 
-/* .search-shop {
-  align-content: center;
-  width: 50%
-} */
 
 .v-field__field {
   border-bottom: 1px solid grey;
@@ -115,14 +110,12 @@
 
 }
 .products-page {
-  /* margin: 3rem; */
   text-align: center;
 }
 
 .products-item-card {
   font-size: 30px;
   color: #5471a7;
-  /* padding-top: 70px;; */
   border: 1px solid #ffd700;
   margin: 1rem;
 
@@ -131,9 +124,6 @@
 .products-item-card:hover {
   
   background: #fae99d ;
-  /* #fae99d
-  #ffd700
-   */
 }
 
 </style>

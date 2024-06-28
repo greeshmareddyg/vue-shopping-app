@@ -1,38 +1,7 @@
 <template>
     <div class="grid-container contact-page">
-
-      <!-- <div class="column c1-2-md c1-4-lg">
-        <h3>Contact Page</h3>
-        <v-card
-          class="mx-auto"
-          subtitle="Greeshma's brand"
-          width="400"
-        >
-          <template v-slot:title>
-            <span class="font-weight-black">GG</span>
-          </template>
-
-          <v-card-text class="bg-surface-light pt-4">
-            ADDRESS<br/>
-            Morrisville <br/>
-            NC, 27560
-          </v-card-text>
-        </v-card>
-      </div>
-      <div class="column c1-2-md c1-8-lg">
-        <v-btn @click="getLocation()">get location</v-btn>
-        {{ lat }} , {{ lng }}
-
-        <div ref="mapContainer" style="width: 400px; height: 400px"></div>
-
-
-      </div>   -->
-
       <div class="column ">
-
-        <h3>Contact Page</h3>
-
-        
+        <h3>Contact Page</h3> 
         <h4>GG Brand</h4>
         <p>Greeshma's Brand</p>
         <p> ADDRESS<br/>
@@ -51,13 +20,7 @@
       <div class="column c1-4-lg">
       </div>
       <div class="column c1-2-md c1-8-lg">
-
-
-
-
         <div ref="mapContainer" class="contact-map" ></div>
-
-
       </div>
 
     </div>
@@ -130,7 +93,6 @@
 
   .contact-page {
     color: #5471a7;
-    /* align-items: left; */
   } 
 
   .lang-lat-text {
@@ -153,8 +115,6 @@
 
 
   }
-
-/* #map { height: 180px; } */
 
 
   </style>

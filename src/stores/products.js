@@ -11,6 +11,7 @@ export const productsStore = defineStore('products', {
     cartTotal: 0
   }),
   actions: {
+    // Fetch Api data
     async fetchProductsFromAPI() {
       await fetch('https://dummyjson.com/products')
           .then(res => res.json())
@@ -43,6 +44,7 @@ export const productsStore = defineStore('products', {
 
   },
   getters: {
+    // getters for different data rom products
     filteredProductsData: (state) => {
       return state.products.filter((product) => product.title.toLowerCase().includes(state.searchText.toLowerCase()))
     },

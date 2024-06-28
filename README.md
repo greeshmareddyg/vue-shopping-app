@@ -30,7 +30,6 @@ Its a responsive shopping app.
 - on the home page there is description and product categories and quantities that are got from store gettere.
 
 
-
 ### Shop-page: 
 
 - There is a products list display. 
@@ -47,6 +46,7 @@ Its a responsive shopping app.
 ### Cart-page
 
 - on the cart page you can see the added products and its details ( stock, shipping)
+- add and remove the products.
 - and the total of the products
 
 
@@ -68,13 +68,13 @@ Bonus Points
 - CSS UI Patterns : i have used css pattern on the home page for category tiles
 - Usage of webpack for bundling and code splitting : used vite.
 
-and I tried to design the layout well and  metch the colors.
+and I tried to design the layout well and  match the colors.
 added responsiveness.
 
 ### References:
 
 - amazon products details page and cart page layout designs.
-- refered Christina moss page for the layout
+- referred Christina moss page for the layout
 
 
 ## Progress

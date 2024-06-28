@@ -17,12 +17,6 @@
       <v-card-subtitle>
         $ {{ props.productData.price }}
       </v-card-subtitle>
-      
-        <!-- <v-btn class="addcart-btn" @click="goToProductPage(props.productData.id)">
-          add to cart 
-        </v-btn> -->
-
-    
                                                 
     </v-card>
   </v-sheet>

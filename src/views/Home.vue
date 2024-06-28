@@ -15,14 +15,11 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
             sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit 
             anim id est laborum.</p>
-
-        
-            
             
         </div>  
           <div class="column" :style="{ color: '#5471a7' , fontWeight: 'bold' }">Our products</div>
 
-          
+          <!-- Filtered Categories -->
           <div 
           v-for="(category, index) in getCategoriesData" 
           :key="index"
@@ -33,17 +30,6 @@
             <p class="product-qty">Qty {{ category.length }}</p>
 
           </div>
-          <!-- <div class="app-feature app-features-beauty column c1-2-md c1-3-lg">
-            Beauty
-          </div>
-          <div class="app-feature app-features-care column c1-2-md c1-3-lg">
-            Featured
-          </div>
-          <div class="app-feature app-features-care column c1-2-md c1-3-lg">
-            Featured
-          </div> -->
-
-          <!-- {{ getCategoriesData }} -->
       </div>
     </div>
 
@@ -86,12 +72,6 @@
   </script>
   
   <style scoped>
-  /* .app-home-features {
-  text-align: center;
-} */
-
-
-
 
 .app-feature {
   font-size: 30px;
@@ -120,9 +100,6 @@
 .app-feature:hover {
   
   background: #fae99d ;
-  /* #fae99d
-  #ffd700
-   */
 }
 
   </style>
