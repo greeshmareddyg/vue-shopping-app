@@ -8,9 +8,8 @@
           height="200px"
           cover
           :alt="props.productData.title"
-          ></v-img>
+      ></v-img>
       
-
       <v-card-title>
         {{ props.productData.title }}
       </v-card-title>
@@ -19,9 +18,9 @@
         $ {{ props.productData.price }}
       </v-card-subtitle>
       
-        <v-btn class="addcart-btn" @click="goToProductPage(props.productData.id)">
+        <!-- <v-btn class="addcart-btn" @click="goToProductPage(props.productData.id)">
           add to cart 
-        </v-btn>
+        </v-btn> -->
 
     
                                                 

@@ -25,5 +25,14 @@ Second day:
 - Router Error handling for now.
 - Light House: Accessibilty and SEO practices checked and Fixed
 
+Third day:
+- product Details, Cart details pages improvements
+- Layout fixes and styling.
+- some data and state management.
+- SSR code added.
+
+
+
+
 
 

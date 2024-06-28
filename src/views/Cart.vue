@@ -1,12 +1,9 @@
 <template>
   <div class="cart-view">
-
-    
-    
       <div v-if="!store.cart.length" class="grid-container" style="text-align: center">
         <div class="column" >
         <h2>Empty Cart ...</h2>
-        <button @click="router.push({ name: 'Catalog' })">Go to Shop</button>
+        <v-btn @click="router.push({ name: 'Catalog' })">Go to Shop</v-btn>
         </div>
       </div>
       <div class="cart-items grid-container" v-else>

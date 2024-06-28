@@ -1,0 +1,35 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Catalog.vue > renders the catalog view 1`] = `
+<div
+  class="products-list grid-container"
+  data-v-e5ae2966=""
+>
+  <div
+    class="column"
+    data-v-e5ae2966=""
+  >
+    <v-text-field
+      class="search-input"
+      clearable=""
+      data-v-e5ae2966=""
+      label="Search"
+      modelvalue=""
+    />
+    <!--v-if-->
+    <!--v-if-->
+    <span
+      data-v-e5ae2966=""
+    >
+      0 results 
+    </span>
+    <v-row
+      data-v-e5ae2966=""
+      no-gutters=""
+    >
+      
+      
+    </v-row>
+  </div>
+</div>
+`;

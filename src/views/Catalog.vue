@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <div class=" grid-container">
+    <div class="grid-container shop-page">
       <div class="column c1-3-lg"></div>
       <div class="column  c1-6-lg"> 
         <div class="search-shop">

@@ -27,8 +27,8 @@ export const productsStore = defineStore('products', {
     },
 
     addToCart(product) {
-      console.log('cart called ', this.cart)
       this.cart.push(product)
+      console.log('cart called ', this.cart)
     },
 
     removeFromCart(id) {

@@ -28,7 +28,7 @@ span {
 }
 
 main {
-    max-width: 80%;
+    max-width: 70%;
     margin: 0 auto;
     padding: 16px;
     margin-top: 1.5rem;
@@ -66,8 +66,13 @@ header {
   @media screen and (min-width:560px) {}
   
   @media screen and (min-width:737px) {
+
+
     .c1-2-md {
       grid-column: auto / span 6;
+    }
+    .c1-8-md {
+      grid-column: auto / span 8;
     }
     .c1-md {
       grid-column: auto / span 12;
